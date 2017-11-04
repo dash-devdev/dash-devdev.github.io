@@ -9,7 +9,9 @@ body {
 }
 
 .header-1 {
-    font-size: 2em
+    font-size: 2em;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .header-2 {

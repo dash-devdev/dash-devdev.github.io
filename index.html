@@ -61,19 +61,39 @@
     <br />
     <br />
     <!-- End Navbar -->
-    <div class="container">
+    <div class="container" id="app">
         <p class="header-1">Choose Your Skills</p>
-        <p class="">Add your top-5 skills</p>
+        <p class="">Choose at least 5 skills to start building your profile.</p>
         <div class="form-group">
-            <input type="text" data-provide="typeahead" id="skill-input" placeholder="Type your skill" class="form-control">
+            <input type="text" data-provide="typeahead" id="skill-input" placeholder="Add skill" class="form-control">
         </div>
-        <div class="button-group skill-buttons" id="skill-buttons"></div>
+        <p class="header-2">Your Selected Skills</p>
+        <div class="button-group skill-buttons" id="skill-buttons">
+            <p class="text-muted" id="no-skills">No skills selected.</p>
+        </div>
         <br />
 
         <p class="header-2">Suggested Skills</p>
         <div class="button-group skill-buttons" id="suggested-skills">
-            <p>No suggestions at the moment. Add a skill to get started.</p>
+            <p class="text-muted">No suggestions at the moment. Add a skill to get started.</p>
         </div>
+        <br />
+        <hr />
+        <br />
+        <!--
+        <p class="header-1">Career Development</p>
+        <p>Choose skills you wish to learn in the future.</p>
+        <div class="form-group">
+            <input type="text" data-provide="typeahead" id="future-skill-input" placeholder="Add skill" class="form-control">
+        </div>
+        <div class="button-group skill-buttons" id="future-skill-buttons">
+            <p class="text-muted" id="no-future-skills">No skills selected.</p>
+        </div>
+
+        <p>Choose your future job title.</p>
+        <div class="form-group">
+            <input type="text" data-provide="typeahead" id="future-title-input" placeholder="Desired title" class="form-control">
+        </div> -->
     </div>
 </body>
 <!--   Core JS Files   -->
@@ -83,6 +103,7 @@
 <script src="assets/js/plugins/typeahead.js" type="text/javascript"></script>
 <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
 <script src="assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
+<script src="assets/js/core/bundle.js" type="text/javascript"></script>
 <script>
     var skills = [{
         name: 'webdev',
@@ -130,7 +151,6 @@
         }, 0)
     })
 
-
     function addSkill(skill) {
         if (!skill || !skill.length) {
             return
@@ -138,8 +158,17 @@
         var button = document.createElement('button')
         button.className = 'btn btn-primary btn-round'
         button.textContent = skill
+        button.addEventListener('click', function(e) {
+            e.target.parentNode.removeChild(e.target)
+            var toRemove = current_skills.indexOf(skill)
+            current_skills.splice(toRemove, 1)
+            if (current_skills.length === 0) {
+                document.getElementById('no-skills').style.display = 'inherit'
+            }
+        })
         document.getElementById('skill-buttons').appendChild(button)
         current_skills.push(skill)
+        document.getElementById('no-skills').style.display = 'none'
         updateSuggestions(skill)
     }
 
@@ -175,10 +204,12 @@
                 document.getElementById("suggested-skills").appendChild(button)
             })
         } else if (current_skills.length === 0) {
-            $('#suggested-skills').html('<p>No suggestions available. Add a skill to get started.</p>')
+            $('#suggested-skills').html('<p class="text-muted">No suggestions available. Add a skill to get started.</p>')
         } else {
-            $('#suggested-skills').html('<p>No suggestions available.</p>')
+            $('#suggested-skills').html('<p class="text-muted">No suggestions available.</p>')
         }
     }
+
+    $("#future-skill-input").typeahead.apply($("#future-skill-input"), completers)
 </script>
 </html>
