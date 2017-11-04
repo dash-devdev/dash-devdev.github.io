@@ -1,0 +1,24 @@
+body {
+    font-family: Montserrat !important;
+}
+
+.navbar-brand {
+    font-size: 2em !important;
+    font-weight: 600 !important;
+    color: #8bffbb !important;
+}
+
+.header-1 {
+    font-size: 2em
+}
+
+.header-2 {
+    font-size: 1.5em;
+}
+
+.skill-buttons > button {
+    margin-right: 1em;
+    min-width: 200px;
+}
+
+.twitter-typeahead, .tt-hint, .tt-input, .tt-menu { width: 100%; }
