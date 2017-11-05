@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Dev²</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/typeahead.css" rel="stylesheet" />
+    <link href="assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
+    <link href="assets/css/custom.css" rel="stylesheet" />
+    <style>
+
+        button {
+            background-color: #4a90e2 !important;
+        }
+
+        input:focus {
+            border-color: #4a90e2 !important;
+        }
+
+    </style>
+</head>
+
+<body class="template-page sidebar-collapse">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark " color-on-scroll="400">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand">
+                    <img src="assets/img/logo.png" height="30px" />
+                </a>
+                <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" data-nav-image="assets/img/blurred-image-1.jpg">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <p>My Profile</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <p>Trends</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <p>Learning Center</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <p>Back to Työmarkkinatori</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br />
+    <br />
+    <!-- End Navbar -->
+    <div class="container" id="app">
+        <p class="header-1">Career Development</p>
+        <p class="">Choose skills you wish to learn in the future.</p>
+        <div class="form-group">
+            <input type="text" data-provide="typeahead" id="skill-input" placeholder="Add a skill" class="form-control">
+        </div>
+        <p>Choose your future job title.</p>
+        <div class="form-group">
+            <input type="text" data-provide="typeahead" id="future-title-input" placeholder="Desired title" class="form-control">
+        </div>
+
+        <br />
+
+        <p class="header-2">Your Wishlist</p>
+        <div class="button-group skill-buttons" id="skill-buttons">
+            <p class="text-muted" id="no-skills">No skills selected.</p>
+        </div>
+        <!-- <br />
+        <hr />
+        <br />
+        <p class="header-1">Choose Your Skills</p>
+        <p class="">Choose at least 5 skills to start building your profile.</p>
+        <div class="form-group">
+            <input type="text" data-provide="typeahead" id="skill-input" placeholder="Add skill" class="form-control">
+        </div>
+        <p class="header-2">Your Selected Skills</p>
+        <div class="button-group skill-buttons" id="skill-buttons">
+            <p class="text-muted" id="no-skills">No skills selected.</p>
+        </div>
+        <br />
+
+        <p class="header-2">Suggested Skills</p>
+        <div class="button-group skill-buttons" id="suggested-skills">
+            <p class="text-muted">No suggestions at the moment. Add a skill to get started.</p>
+        </div>
+        <br />
+        <hr />
+        <br />-->
+        <!--
+        <p class="header-1">Career Development</p>
+        <p>Choose skills you wish to learn in the future.</p>
+        <div class="form-group">
+            <input type="text" data-provide="typeahead" id="future-skill-input" placeholder="Add skill" class="form-control">
+        </div>
+        <div class="button-group skill-buttons" id="future-skill-buttons">
+            <p class="text-muted" id="no-future-skills">No skills selected.</p>
+        </div>
+
+        <p>Choose your future job title.</p>
+        <div class="form-group">
+            <input type="text" data-provide="typeahead" id="future-title-input" placeholder="Desired title" class="form-control">
+        </div>-->
+    </div>
+</body>
+<!--   Core JS Files   -->
+<script src="assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/plugins/typeahead.js" type="text/javascript"></script>
+<!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+<script src="assets/js/now-ui-kit.js?v=1.1.0" type="text/javascript"></script>
+<script src="assets/js/core/bundle.js" type="text/javascript"></script>
+<script>
+    var skills = [{
+        name: 'webdev',
+        data: ['HTML', 'JavaScript', 'CSS', 'AngularJS', 'React', 'Responsive Design', 'Progressive Web Apps', 'TypeScript', 'Webpack', 'Immutable.js', 'Redux']
+    }, {
+        name: 'Data Science',
+        data: ['Python', 'Pandas', 'Scipy', 'Numpy', 'Neural Networks', 'Deep Learning', 'Artificial Intelligence', 'Statistics', 'R', 'R Studio']
+    },  {
+        name: 'Big Data',
+        data: ['Apache Spark', 'PySpark', 'SparkSQL', 'Hive', 'Presto', 'Apache Hadoop', 'HDFS', 'Apache Kafka', 'Databricks', 'Apache Storm']
+    }]
+
+    var current_skills = []
+
+    var completers = skills.map(function (skill, i) {
+        return {
+            name: i,
+            source: new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.whitespace,
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                local: skill.data
+            })
+        }
+    })
+
+    completers.unshift({
+        minLength: 1,
+        highlight: true,
+    })
+
+    $("#skill-input").typeahead.apply($("#skill-input"), completers)
+
+    $('#skill-input').on('keyup', function (e) {
+        if (e.keyCode == 13) {
+            addSkill(e.target.value)
+            e.target.value = ''
+        }
+    })
+
+    $("#skill-input").bind('typeahead:selected', function(obj, datum, name) {
+        var input = document.getElementById('skill-input')
+        addSkill(datum)
+        setTimeout(function() {
+            input.value = ''
+        }, 0)
+    })
+
+    function addSkill(skill) {
+        if (!skill || !skill.length) {
+            return
+        }
+        var button = document.createElement('button')
+        button.className = 'btn btn-primary btn-round'
+        button.textContent = skill
+        button.addEventListener('click', function(e) {
+            e.target.parentNode.removeChild(e.target)
+            var toRemove = current_skills.indexOf(skill)
+            current_skills.splice(toRemove, 1)
+            if (current_skills.length === 0) {
+                document.getElementById('no-skills').style.display = 'inherit'
+            }
+        })
+        document.getElementById('skill-buttons').appendChild(button)
+        current_skills.push(skill)
+        document.getElementById('no-skills').style.display = 'none'
+        //updateSuggestions(skill)
+    }
+
+    function updateSuggestions() {
+        document.getElementById("suggested-skills").innerHTML = ''
+        var suggestions = []
+        for (var i = 0; i < skills.length; i++) {
+            var all_skills = skills[i].data
+            var matching_skills = all_skills.filter(function (skill) {
+                return current_skills.includes(skill)
+            })
+
+            if (matching_skills.length > 1) {
+                var extra_skills = all_skills.filter(function (skill) {
+                    return !current_skills.includes(skill)
+                })
+
+                for (var a = 0; a < extra_skills.length && a < 5; a++)
+                    suggestions.push(extra_skills[a])
+            }
+        }
+
+        if (suggestions.length > 0) {
+            suggestions.forEach(function(skill) {
+                var button = document.createElement('button')
+                button.addEventListener('click', function(e) {
+                    addSkill(skill)
+                    e.target.parentNode.removeChild(e.target)
+                })
+                button.className = 'btn btn-primary btn-round'
+                button.textContent = skill
+
+                document.getElementById("suggested-skills").appendChild(button)
+            })
+        } else if (current_skills.length === 0) {
+            $('#suggested-skills').html('<p class="text-muted">No suggestions available. Add a skill to get started.</p>')
+        } else {
+            $('#suggested-skills').html('<p class="text-muted">No suggestions available.</p>')
+        }
+    }
+
+    $("#future-skill-input").typeahead.apply($("#future-skill-input"), completers)
+</script>
+</html>
